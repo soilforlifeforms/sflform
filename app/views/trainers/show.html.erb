@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trainer.trainer_name %>
+</p>
+<%= link_to "Add New group", :controller => 'groups', :action => 'new', :trainer_id => @trainer.id, :class => 'action new' %>|
+<%= link_to "Show groups", :controller => 'groups', :action => 'index', :trainer_id => @trainer.id, :class => 'action index' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Group name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.group_name %></td>
+          </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= link_to 'Edit', edit_trainer_path(@trainer) %> |
+<%= link_to 'Back', trainers_path %>

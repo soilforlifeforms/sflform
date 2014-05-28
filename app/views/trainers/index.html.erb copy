@@ -1,0 +1,40 @@
+<h1>Listing trainers</h1>
+<%= link_to "groups", controller: 'groups' %>
+<%= link_to "Add New group", :action => 'new', :trainer_id => @trainer.id, :class => 'action new' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+    </tr> 
+  </thead>
+
+  <tbody>
+    <% @trainers.each do |trainer| %>
+      <tr>
+        <td><%= trainer.trainer_name %></td>
+        <td><%= link_to('View Groups',{:controller => 'groups', :trainer_id => trainer.id}, :class => 'action show') %></td>
+        <td><%= link_to 'Show', :trainer_id => trainer.id, :group_id => @group.id, :class => 'action show' %></td>
+        <td><%= link_to('Edit',{:action => 'edit', :trainer_id => trainer.id, :group_id => @group.id}, :class => 'action edit' %></td>
+        <td><%= link_to('Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% @groups.each do |group| %>
+      <tr>
+        <td><%= group.group_name %></td>
+        <td><%= group.trainer_id %></td>
+        <td><%= link_to 'Show', group %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+<br>
+
+<%= link_to 'New Trainer', new_trainer_path %>

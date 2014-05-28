@@ -1,0 +1,26 @@
+<h1>Listing trainers</h1>
+<%= link_to "groups", controller: 'groups' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Trainer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @trainers.each do |trainer| %>
+      <tr>
+        <td><%= trainer.trainer_name %></td>
+        <td><%= trainer.id %></td>
+        <td><%= link_to 'Show', trainer %></td>
+        <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
+        <td><%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+<br>

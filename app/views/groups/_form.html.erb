@@ -1,0 +1,10 @@
+<%= form_for(@group, :url => { :trainer_id => @trainer.id}) do |f| %>
+<table summary = "groups from trainer">
+  <tr>
+    <th><%= f.label(:group_name) %></th>
+    <td><%= f.text_field(:group_name) %></td>
+    </tr>
+       <div class="actions">
+    <%= f.submit %>
+    </div>
+      <% end %>

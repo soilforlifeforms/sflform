@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sflapp</title>
+  <%= stylesheet_link_tag    'application', media: "all", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= link_to "Sign Up", :controller => 'trainers', :action => 'new' %> or
+  <%= link_to "Log In", :controller => 'access', :action => 'login' %>
+
+<%= yield %>
+
+</body>
+</html>
